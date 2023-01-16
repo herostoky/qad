@@ -1,0 +1,35 @@
+{
+  "name": "qad",
+  "files": [
+    "data/"
+  ],
+  "version": "1.0.0",
+  "description": "Terminal Quick Access directory manager.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herostoky/qad.git"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "herostoky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/herostoky/qad/issues"
+  },
+  "homepage": "https://github.com/herostoky/qad#readme",
+  "devDependencies": {
+    "@types/figlet": "^1.5.5",
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "commander": "^10.0.0",
+    "figlet": "^1.5.2"
+  }
+}
