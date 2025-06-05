@@ -2,12 +2,13 @@ import { Command } from "commander";
 import * as figlet from "figlet";
 import * as fs from "fs";
 import { ls } from "./ls";
+import { dataPath, defaultDataPath } from "./constant/param";
+import { add } from "./add";
 
 //! Check the default json file as DB
-const dataPath = "./data/dir.json";
 if (!fs.existsSync(dataPath)) {
   console.log("Creating default json file...");
-  fs.copyFileSync(`${__dirname}/data/dir.json`, dataPath);
+  fs.copyFileSync(`${__dirname}${defaultDataPath}`, dataPath);
 }
 
 //! Log the package name to the console
@@ -20,7 +21,7 @@ program
   .description("An example CLI for managing Quick Access Directories")
   .option("-l, --ls", "List all quick access directories")
   .option(
-    "-a, --ad [dir]",
+    "-a, --add [name]",
     "Add current/specific directory to quick access directories"
   )
   .option(
@@ -39,4 +40,13 @@ if (!options.ls && !options.ad && !options.rm) {
 
 if (options.ls) {
   ls();
+}
+
+if (options.add) {
+  const name = options.ad;
+  if (typeof name === "string" && name.trim() !== "") {
+    add(name, process.cwd());
+  } else {
+    console.error("Please provide a valid directory name to add.");
+  }
 }

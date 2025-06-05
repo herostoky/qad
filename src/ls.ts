@@ -1,9 +1,10 @@
 import * as fs from "fs";
 import { DirModel } from "./model/dir-model";
+import { dataPath } from "./constant/param";
 export function ls(): void {
   try {
     const directories: DirModel[] = JSON.parse(
-      fs.readFileSync("./data/dir.json", "utf-8")
+      fs.readFileSync(dataPath, "utf-8")
     );
     directories.forEach((dir) => {
       console.log(`Name: ${dir.name}, Path: ${dir.path}`);
